@@ -1,0 +1,15 @@
+[Unit]
+Description=hack to get the Infineon TPM working on the Edison
+After=local-fs.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/lib/infineon-tpm-hack/infineon-tpm-hack start
+ExecStop=/usr/lib/infineon-tpm-hack/infineon-tpm-hack stop
+TimeoutSec=0
+StandardOutput=tty
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+
